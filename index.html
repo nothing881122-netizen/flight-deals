@@ -10,66 +10,75 @@
   <title>✈ 항공권 특가 모니터</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#F1F3F4;color:#202124;min-height:100vh}
-    .header{background:linear-gradient(135deg,#1558D6 0%,#0842A0 100%);color:white;padding:52px 20px 28px;text-align:center}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#FAF7F2;color:#2C1810;min-height:100vh}
+    .header{background:linear-gradient(135deg,#D0663C 0%,#B0502C 100%);color:white;padding:52px 20px 28px;text-align:center}
     .header h1{font-size:22px;font-weight:700;margin-bottom:6px}
-    .subtitle{font-size:13px;opacity:.8;margin-bottom:16px}
+    .subtitle{font-size:13px;opacity:.85;margin-bottom:16px}
     .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
     .chip{background:rgba(255,255,255,.2);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:500}
-    .chip-deal{background:rgba(251,188,4,.35)}
+    .chip-deal{background:rgba(255,210,120,.3)}
     .main{max-width:600px;margin:0 auto;padding:0 0 48px}
     .section{padding:20px 16px 4px}
     .section-title{font-size:17px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
     .badge{border-radius:12px;padding:2px 10px;font-size:13px;font-weight:600}
-    .badge-deal{background:#FDD835;color:#1A1A1A}
-    .card{background:white;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-    .deal-card{border-left:4px solid #0F9D58}
-    .card-route{font-size:13px;color:#5F6368;margin-bottom:8px}
+    .badge-deal{background:#F8D8C4;color:#6B3828}
+    .card{background:white;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(140,70,20,.1)}
+    .deal-card{border-left:4px solid #D0663C}
+    .card-route{font-size:13px;color:#8B7355;margin-bottom:8px}
     .card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}
     .date-range{font-size:16px;font-weight:600;display:block}
-    .stay-tag{display:inline-block;background:#E8F0FE;color:#1558D6;border-radius:6px;padding:2px 8px;font-size:12px;margin-top:4px}
+    .stay-tag{display:inline-block;background:#FAF0E8;color:#B0502C;border-radius:6px;padding:2px 8px;font-size:12px;margin-top:4px;font-weight:500}
     .tag{border-radius:8px;padding:4px 10px;font-size:12px;white-space:nowrap}
-    .tag-weekend{background:#FCE8E6;color:#C5221F}
+    .tag-weekend{background:#FAE2D4;color:#873D21;font-weight:500}
     .price-line{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-    .price{font-size:30px;font-weight:700;color:#202124}
-    .discount{background:#E6F4EA;color:#137333;border-radius:10px;padding:4px 12px;font-size:15px;font-weight:700}
-    .saving{font-size:13px;color:#5F6368;margin-bottom:14px}
-    .btn-book{display:block;background:#1558D6;color:white;text-align:center;text-decoration:none;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:600}
-    .btn-book:active{background:#0842A0}
+    .price{font-size:30px;font-weight:700;color:#2C1810}
+    .discount{background:#FAE2D4;color:#873D21;border-radius:10px;padding:4px 12px;font-size:15px;font-weight:700}
+    .saving{font-size:13px;color:#8B7355;margin-bottom:14px}
+    .btn-book{display:block;background:#D0663C;color:white;text-align:center;text-decoration:none;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:600}
+    .btn-book:active{background:#B0502C}
     .no-deal-card{text-align:center;padding:32px 16px}
     .no-deal-emoji{font-size:40px;margin-bottom:8px}
     .no-deal-text{font-size:17px;font-weight:600;margin-bottom:4px}
-    .no-deal-sub{font-size:14px;color:#5F6368}
+    .no-deal-sub{font-size:14px;color:#8B7355}
     .routes-section{padding:4px 16px 20px}
     .routes-section-title{font-size:17px;font-weight:700;margin-bottom:14px}
-    .route-block{background:white;border-radius:16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow:hidden}
+    .route-block{background:white;border-radius:16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(140,70,20,.08);overflow:hidden}
     .route-header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 8px}
     .route-name{font-size:15px;font-weight:600}
     .route-status{font-size:12px;font-weight:600;border-radius:10px;padding:3px 10px;white-space:nowrap}
-    .route-status-deal{background:#E6F4EA;color:#137333}
-    .route-status-none{background:#F1F3F4;color:#80868B}
-    .route-stats{font-size:12px;color:#5F6368;padding:0 16px 10px}
-    .no-route-deal{font-size:13px;color:#80868B;padding:4px 16px 14px}
+    .route-status-deal{background:#FAE2D4;color:#873D21}
+    .route-status-none{background:#F5EDE0;color:#A89070}
+    .route-stats{font-size:12px;color:#8B7355;padding:0 16px 10px}
+    .no-route-deal{font-size:13px;color:#A89070;padding:4px 16px 14px}
     .route-block .card{margin:4px 12px 12px}
-    .footer{text-align:center;padding:20px;font-size:12px;color:#9AA0A6}
+    .footer{text-align:center;padding:20px;font-size:12px;color:#B8986A}
     </style>
 </head>
 <body>
   <div class="header">
     <h1>✈ 항공권 특가 모니터</h1>
-    <p class="subtitle">스캔 2026-05-22 10:21</p>
+    <p class="subtitle">스캔 2026-05-22 11:51</p>
     <div class="chips">
-      <span class="chip">1개 노선</span>
-      <span class="chip chip-deal">특가 0건</span>
+      <span class="chip">9개 노선</span>
+      <span class="chip chip-deal">특가 1건</span>
       <span class="chip">인천 출발</span>
     </div>
   </div>
   <div class="main">
     <section class="section">
-    <div class="card no-deal-card">
-      <p class="no-deal-emoji">😅</p>
-      <p class="no-deal-text">오늘은 특가가 없습니다</p>
-      <p class="no-deal-sub">내일 다시 확인해보세요</p>
+    <h2 class="section-title">🔥 오늘의 특가 <span class="badge badge-deal">1건</span></h2>
+    <div class="card deal-card">
+      <p class="card-route">✈ 인천 → 도쿄 (나리타)</p>
+      <div class="card-header">
+        <div><span class="date-range">6/27(토)~6/30(화)</span><span class="stay-tag">3박4일</span></div>
+        <span class="tag tag-weekend">📅 주말포함</span>
+      </div>
+      <div class="price-line">
+        <span class="price">225,287원</span>
+        <span class="discount">▼28%</span>
+      </div>
+      <p class="saving">중간값 대비 약 87,506원 절약</p>
+      <a href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDYtMjdqBRIDSUNOcgUSA05SVBoaEgoyMDI2LTA2LTMwagUSA05SVHIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" class="btn-book" target="_blank">Google Flights 예약 →</a>
     </div>
   </section>
     <div class="routes-section">
@@ -77,9 +86,85 @@
       <div class="route-block">
       <div class="route-header">
         <span class="route-name">인천 → 도쿄 (나리타)</span>
+        <span class="route-status route-status-deal">특가 1건</span>
+      </div>
+      <p class="route-stats">수집 21건 · 최저 225,287원 · 중간값 312,793원</p>
+      <div class="card deal-card">
+      
+      <div class="card-header">
+        <div><span class="date-range">6/27(토)~6/30(화)</span><span class="stay-tag">3박4일</span></div>
+        <span class="tag tag-weekend">📅 주말포함</span>
+      </div>
+      <div class="price-line">
+        <span class="price">225,287원</span>
+        <span class="discount">▼28%</span>
+      </div>
+      <p class="saving">중간값 대비 약 87,506원 절약</p>
+      <a href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDYtMjdqBRIDSUNOcgUSA05SVBoaEgoyMDI2LTA2LTMwagUSA05SVHIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" class="btn-book" target="_blank">Google Flights 예약 →</a>
+    </div>
+    </div>
+    <div class="route-block">
+      <div class="route-header">
+        <span class="route-name">인천 → 도쿄 (하네다)</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 263,741원 · 중간값 301,227원</p>
+      <p class="route-stats">수집 21건 · 최저 382,779원 · 중간값 496,644원</p>
+      <p class="no-route-deal">이 기간 특가 없음</p>
+    </div>
+    <div class="route-block">
+      <div class="route-header">
+        <span class="route-name">인천 → 오사카</span>
+        <span class="route-status route-status-none">특가 없음</span>
+      </div>
+      <p class="route-stats">수집 21건 · 최저 227,586원 · 중간값 269,611원</p>
+      <p class="no-route-deal">이 기간 특가 없음</p>
+    </div>
+    <div class="route-block">
+      <div class="route-header">
+        <span class="route-name">인천 → 후쿠오카</span>
+        <span class="route-status route-status-none">특가 없음</span>
+      </div>
+      <p class="route-stats">수집 21건 · 최저 236,005원 · 중간값 288,362원</p>
+      <p class="no-route-deal">이 기간 특가 없음</p>
+    </div>
+    <div class="route-block">
+      <div class="route-header">
+        <span class="route-name">인천 → 상하이</span>
+        <span class="route-status route-status-none">특가 없음</span>
+      </div>
+      <p class="route-stats">수집 21건 · 최저 423,391원 · 중간값 484,640원</p>
+      <p class="no-route-deal">이 기간 특가 없음</p>
+    </div>
+    <div class="route-block">
+      <div class="route-header">
+        <span class="route-name">인천 → 방콕</span>
+        <span class="route-status route-status-none">특가 없음</span>
+      </div>
+      <p class="route-stats">수집 21건 · 최저 407,302원 · 중간값 539,237원</p>
+      <p class="no-route-deal">이 기간 특가 없음</p>
+    </div>
+    <div class="route-block">
+      <div class="route-header">
+        <span class="route-name">인천 → 싱가포르</span>
+        <span class="route-status route-status-none">특가 없음</span>
+      </div>
+      <p class="route-stats">수집 21건 · 최저 448,517원 · 중간값 519,835원</p>
+      <p class="no-route-deal">이 기간 특가 없음</p>
+    </div>
+    <div class="route-block">
+      <div class="route-header">
+        <span class="route-name">인천 → LA</span>
+        <span class="route-status route-status-none">특가 없음</span>
+      </div>
+      <p class="route-stats">수집 21건 · 최저 1,502,854원 · 중간값 1,920,231원</p>
+      <p class="no-route-deal">이 기간 특가 없음</p>
+    </div>
+    <div class="route-block">
+      <div class="route-header">
+        <span class="route-name">인천 → 하와이</span>
+        <span class="route-status route-status-none">특가 없음</span>
+      </div>
+      <p class="route-stats">수집 21건 · 최저 1,393,511원 · 중간값 1,635,742원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     </div>
