@@ -1,0 +1,3 @@
+﻿# PWA secrets — never commit
+app/.vapid_keys.json
+app/subscriptions.json

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#D0663C">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon-192.png">
+  <title>생활 알리미 설정</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#FAF7F2;color:#2C1810;min-height:100vh;padding-bottom:60px}
+    .header{background:linear-gradient(135deg,#D0663C 0%,#B0502C 100%);color:white;padding:48px 20px 24px;text-align:center}
+    .header h1{font-size:22px;font-weight:700;margin-bottom:6px}
+    .header .subtitle{font-size:13px;opacity:.85}
+    .main{max-width:600px;margin:0 auto;padding:16px}
+    .card{background:white;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(140,70,20,.08)}
+    .status-card{display:flex;align-items:center;gap:12px}
+    .status-dot{width:10px;height:10px;border-radius:50%;background:#9AA0A6;flex-shrink:0}
+    .status-dot.on{background:#34A853}
+    .status-dot.off{background:#EA4335}
+    .status-text{flex:1;font-size:14px}
+    .status-text .label{font-weight:600;display:block}
+    .status-text .sub{color:#8B7355;font-size:12px;margin-top:2px}
+    .btn{display:inline-block;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;text-decoration:none;text-align:center}
+    .btn-primary{background:#D0663C;color:white}
+    .btn-primary:disabled{background:#D0B5A5;cursor:not-allowed}
+    .btn-ghost{background:transparent;color:#D0663C;border:1px solid #D0663C}
+    .btn-block{display:block;width:100%}
+    .section-title{font-size:13px;font-weight:600;color:#8B7355;text-transform:uppercase;letter-spacing:.5px;padding:16px 4px 8px}
+    .topic-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #F5EDE0}
+    .topic-row:last-child{border-bottom:none}
+    .topic-emoji{font-size:28px;flex-shrink:0;width:40px;text-align:center}
+    .topic-info{flex:1;min-width:0}
+    .topic-name{font-size:15px;font-weight:600;margin-bottom:2px}
+    .topic-desc{font-size:12px;color:#8B7355;line-height:1.4}
+    .switch{position:relative;display:inline-block;width:48px;height:28px;flex-shrink:0}
+    .switch input{opacity:0;width:0;height:0}
+    .slider{position:absolute;cursor:pointer;inset:0;background:#D0C7BB;border-radius:28px;transition:.2s}
+    .slider:before{content:"";position:absolute;height:22px;width:22px;left:3px;top:3px;background:white;border-radius:50%;transition:.2s}
+    input:checked + .slider{background:#D0663C}
+    input:checked + .slider:before{transform:translateX(20px)}
+    input:disabled + .slider{opacity:.4;cursor:not-allowed}
+    .test-row{display:flex;justify-content:flex-end;padding-top:8px}
+    .test-btn{font-size:12px;color:#8B7355;background:transparent;border:none;cursor:pointer;text-decoration:underline}
+    .test-btn:hover{color:#D0663C}
+    .info-box{background:#FAE2D4;border-left:3px solid #D0663C;border-radius:8px;padding:12px;font-size:13px;color:#7C4530;line-height:1.5;margin-top:12px}
+    .info-box code{background:rgba(255,255,255,.6);padding:2px 6px;border-radius:4px;font-size:12px}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#2C1810;color:white;padding:12px 20px;border-radius:24px;font-size:14px;box-shadow:0 4px 12px rgba(0,0,0,.2);opacity:0;transition:opacity .3s;pointer-events:none;z-index:1000}
+    .toast.show{opacity:1}
+    .toast.error{background:#B0502C}
+    .endpoint-box{margin-top:12px;padding:10px;background:#F5EDE0;border-radius:8px;font-family:monospace;font-size:11px;color:#5C4030;word-break:break-all;max-height:80px;overflow-y:auto}
+    .footer{text-align:center;padding:24px 16px;font-size:12px;color:#B8986A}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🔔 생활 알리미</h1>
+    <p class="subtitle">받고 싶은 알림만 골라서</p>
+  </div>
+
+  <div class="main">
+    <!-- 구독 상태 카드 -->
+    <div class="card">
+      <div class="status-card">
+        <div class="status-dot" id="status-dot"></div>
+        <div class="status-text">
+          <span class="label" id="status-label">상태 확인 중...</span>
+          <span class="sub" id="status-sub">잠시만요</span>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <button class="btn btn-primary btn-block" id="subscribe-btn" disabled>알림 받기 시작</button>
+      </div>
+      <div class="endpoint-box" id="endpoint-box" style="display:none"></div>
+      <div style="margin-top:8px;display:none" id="copy-row">
+        <button class="btn btn-ghost btn-block" id="copy-btn">구독 정보 복사</button>
+      </div>
+    </div>
+
+    <!-- 카테고리 -->
+    <div class="section-title">알림 카테고리</div>
+    <div class="card" id="topics-card">
+      <!-- JS가 채움 -->
+    </div>
+
+    <!-- 도움말 -->
+    <div class="info-box">
+      <strong>💡 처음 사용 시</strong><br>
+      1) 우측 상단 메뉴 → <code>홈 화면에 추가</code><br>
+      2) 홈 화면 아이콘으로 다시 열기<br>
+      3) <code>알림 받기 시작</code> → 권한 허용<br>
+      4) 표시되는 구독 정보를 복사해서 알려주기 (GitHub Secret 등록용 — 1회만)
+    </div>
+
+    <div class="footer">PWA · Web Push · 본인 알림용</div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

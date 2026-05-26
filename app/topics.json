@@ -1,0 +1,18 @@
+{
+  "topics": [
+    {
+      "id": "flight",
+      "emoji": "✈️",
+      "name": "항공권 특가",
+      "description": "Google Flights ICN 출발 왕복 특가 (매일 06:50)",
+      "default": true
+    },
+    {
+      "id": "ppomppu",
+      "emoji": "🥫",
+      "name": "참치·스팸 핫딜",
+      "description": "뽐뿌 1·2페이지 대박급 이상 (09~19시 매 2시간)",
+      "default": true
+    }
+  ]
+}
