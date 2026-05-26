@@ -68,30 +68,47 @@ self.addEventListener('push', (event) => {
     }
 
     const title = data.title || '알리미';
+    // actions 는 [{action, title, url?, icon?}] 형태로 받아서, url 은 data.action_urls 에 매핑
+    const swActions = [];
+    const action_urls = {};
+    if (Array.isArray(data.actions)) {
+      for (const a of data.actions) {
+        if (!a.action) continue;
+        swActions.push({ action: a.action, title: a.title || a.action, icon: a.icon });
+        if (a.url) action_urls[a.action] = a.url;
+      }
+    }
     const options = {
       body:    data.body || '',
       icon:    data.icon || './icons/icon-192.png',
       badge:   './icons/icon-192.png',
       tag:     data.tag || topic,
-      data:    { url: data.url || './', topic },
+      data:    { url: data.url || './', topic, action_urls },
       vibrate: [200, 100, 200],
       requireInteraction: data.requireInteraction || false,
     };
-    if (data.actions) options.actions = data.actions;
+    if (swActions.length > 0) options.actions = swActions;
 
     await self.registration.showNotification(title, options);
   })());
 });
 
-// 알림 클릭 → 지정 URL 열기
+// 알림 클릭 → 본문 탭이면 data.url, 액션 버튼 탭이면 action_urls[action] 으로 이동
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  const url = event.notification.data?.url || './';
+  const data = event.notification.data || {};
+  let url = data.url || './';
+  if (event.action && data.action_urls && data.action_urls[event.action]) {
+    url = data.action_urls[event.action];
+  }
   event.waitUntil((async () => {
-    const all = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
-    for (const c of all) {
-      if (c.url.includes(url) && 'focus' in c) return c.focus();
-    }
+    // 이미 열려있는 탭이면 focus
+    try {
+      const all = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+      for (const c of all) {
+        if (c.url === url && 'focus' in c) return c.focus();
+      }
+    } catch {}
     if (self.clients.openWindow) return self.clients.openWindow(url);
   })());
 });
