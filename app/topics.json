@@ -8,10 +8,17 @@
       "default": true
     },
     {
-      "id": "ppomppu",
+      "id": "spam",
       "emoji": "🥫",
-      "name": "참치·스팸 핫딜",
-      "description": "뽐뿌 1·2페이지 대박급 이상 (09~19시 매 2시간)",
+      "name": "스팸 핫딜",
+      "description": "뽐뿌 검색 평균 대비 저렴 (2시간마다)",
+      "default": true
+    },
+    {
+      "id": "tuna",
+      "emoji": "🐟",
+      "name": "참치 핫딜",
+      "description": "뽐뿌 검색 평균 대비 저렴 (2시간마다)",
       "default": true
     }
   ]
