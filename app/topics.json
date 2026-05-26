@@ -20,6 +20,27 @@
       "name": "참치 핫딜",
       "description": "뽐뿌 검색 평균 대비 저렴 (2시간마다)",
       "default": true
+    },
+    {
+      "id": "forerunner970",
+      "emoji": "⌚",
+      "name": "가민 포러너 970",
+      "description": "역대 최저가 알림",
+      "default": true
+    },
+    {
+      "id": "forerunner570",
+      "emoji": "⌚",
+      "name": "가민 포러너 570",
+      "description": "역대 최저가 알림",
+      "default": true
+    },
+    {
+      "id": "mxmaster4",
+      "emoji": "🖱️",
+      "name": "로지텍 MX Master 4",
+      "description": "역대 최저가 알림",
+      "default": true
     }
   ]
 }
