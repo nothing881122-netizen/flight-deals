@@ -1,7 +1,14 @@
 {
+  "categories": [
+    { "id": "meta",        "name": "",          "emoji": "" },
+    { "id": "food",        "name": "식품",       "emoji": "🍴" },
+    { "id": "electronics", "name": "가전",       "emoji": "💻" },
+    { "id": "travel",      "name": "여행",       "emoji": "✈️" }
+  ],
   "topics": [
     {
       "id": "super",
+      "category": "meta",
       "emoji": "🚨",
       "name": "찐 특가 (필수!)",
       "description": "평소 -40% 이상 — 강조 알림 + 자동 음성",
@@ -10,6 +17,7 @@
     },
     {
       "id": "flight",
+      "category": "travel",
       "emoji": "✈️",
       "name": "항공권 특가",
       "description": "Google Flights ICN 출발 왕복 (매일 06:50)",
@@ -18,22 +26,25 @@
     },
     {
       "id": "spam",
+      "category": "food",
       "emoji": "🥫",
-      "name": "스팸 핫딜",
-      "description": "평균 대비 저렴",
+      "name": "스팸",
+      "description": "클래식 / 라이트",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-spam",
       "default": true
     },
     {
       "id": "tuna",
+      "category": "food",
       "emoji": "🐟",
-      "name": "참치캔 핫딜",
-      "description": "평균 대비 저렴",
+      "name": "참치캔",
+      "description": "동원·사조·한성·오뚜기",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-tuna",
       "default": true
     },
     {
       "id": "rice",
+      "category": "food",
       "emoji": "🍚",
       "name": "고시히카리 10kg",
       "description": "10kg 한 포대 기준",
@@ -42,14 +53,16 @@
     },
     {
       "id": "granola",
+      "category": "food",
       "emoji": "🥣",
       "name": "그래놀라",
-      "description": "평균 대비 저렴",
+      "description": "켈로그·동서·산과들에",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-granola",
       "default": true
     },
     {
       "id": "yogurt",
+      "category": "food",
       "emoji": "🥛",
       "name": "그릭요거트",
       "description": "일동후디스·파예·빙그레·트웬티",
@@ -58,6 +71,7 @@
     },
     {
       "id": "myprotein",
+      "category": "food",
       "emoji": "💪",
       "name": "마이프로틴",
       "description": "임팩트 웨이 WPC/WPI",
@@ -66,6 +80,7 @@
     },
     {
       "id": "forerunner570",
+      "category": "electronics",
       "emoji": "⌚",
       "name": "가민 포러너 570",
       "description": "역대 최저가",
@@ -74,6 +89,7 @@
     },
     {
       "id": "mxmaster",
+      "category": "electronics",
       "emoji": "🖱️",
       "name": "로지텍 MX Master",
       "description": "Master 3 / 4 통합",
@@ -82,6 +98,7 @@
     },
     {
       "id": "buds4pro",
+      "category": "electronics",
       "emoji": "🎧",
       "name": "갤럭시 버즈4",
       "description": "프로 / 일반",
@@ -90,6 +107,7 @@
     },
     {
       "id": "airpods",
+      "category": "electronics",
       "emoji": "🎧",
       "name": "에어팟",
       "description": "프로 2세대 / 4세대",
@@ -98,6 +116,7 @@
     },
     {
       "id": "xiaomi_powerbank",
+      "category": "electronics",
       "emoji": "🔋",
       "name": "샤오미 슬림 보조배터리",
       "description": "울트라슬림 5K~10K mAh",

@@ -2,8 +2,9 @@
 // VAPID 공개키 (서버 비밀키와 쌍)
 const VAPID_PUBLIC_KEY = 'BDyrDta5TrnKneW5dO7htzM7ddVz5dRuBkRq2un94q4Lzr0D8t1stWPZz5PLV7dgtI08407aKxmrfV0zdw2RKoQ';
 
-const LS_TOPICS = 'alimi.topics';   // { flight: true, ppomppu: false, ... }
+const LS_TOPICS  = 'alimi.topics';   // { flight: true, ppomppu: false, ... }
 const LS_LASTSUB = 'alimi.last_sub'; // 마지막 구독 endpoint hash (변경 감지)
+const LS_GROUPS  = 'alimi.groups';   // { food: 'open', electronics: 'closed', ... }
 
 // ─── DOM refs ───────────────────────────────────────
 const $dot   = document.getElementById('status-dot');
@@ -123,43 +124,129 @@ async function checkExistingSubscription() {
   }
 }
 
+function loadGroupState() {
+  try { return JSON.parse(localStorage.getItem(LS_GROUPS) || '{}'); }
+  catch { return {}; }
+}
+function saveGroupState(state) {
+  localStorage.setItem(LS_GROUPS, JSON.stringify(state));
+}
+
+function topicRowHtml(t, on) {
+  const reportLink = t.report_url
+    ? `<a class="topic-report" href="${t.report_url}" target="_blank" rel="noopener">📋 리포트 보기 →</a>`
+    : '';
+  return `
+    <div class="topic-row">
+      <div class="topic-emoji">${t.emoji}</div>
+      <div class="topic-info">
+        <div class="topic-name">${t.name}</div>
+        <div class="topic-desc">${t.description || ''}</div>
+        ${reportLink}
+      </div>
+      <label class="switch">
+        <input type="checkbox" data-topic="${t.id}" ${on ? 'checked' : ''}>
+        <span class="slider"></span>
+      </label>
+    </div>`;
+}
+
 // ─── 토픽 UI ───────────────────────────────────────
 async function renderTopics() {
   try {
     const res = await fetch('./topics.json', { cache: 'no-cache' });
     const data = await res.json();
     const prefs = loadTopicPrefs();
-    let html = '';
-    data.topics.forEach((t, idx) => {
-      // 기본값: 저장된 값이 있으면 그것, 없으면 t.default
+    const groupState = loadGroupState();
+
+    // 카테고리 메타 (없으면 빈 그룹)
+    const categories = data.categories || [];
+    const catMap = Object.fromEntries(categories.map(c => [c.id, c]));
+
+    // 토픽을 카테고리별로 분류 (category 필드 없으면 'other' 로)
+    const grouped = {};
+    data.topics.forEach(t => {
+      // prefs 기본값 채움
       const on = prefs[t.id] === undefined ? t.default : prefs[t.id];
       prefs[t.id] = on;
-      const reportLink = t.report_url
-        ? `<a class="topic-report" href="${t.report_url}" target="_blank" rel="noopener">📋 리포트 보기 →</a>`
-        : '';
-      html += `
-        <div class="topic-row">
-          <div class="topic-emoji">${t.emoji}</div>
-          <div class="topic-info">
-            <div class="topic-name">${t.name}</div>
-            <div class="topic-desc">${t.description || ''}</div>
-            ${reportLink}
-          </div>
-          <label class="switch">
-            <input type="checkbox" data-topic="${t.id}" ${on ? 'checked' : ''}>
-            <span class="slider"></span>
-          </label>
-        </div>`;
+      const cat = t.category || 'other';
+      (grouped[cat] = grouped[cat] || []).push(t);
     });
     saveTopicPrefs(prefs);
+
+    let html = '';
+    // categories.json 순서대로 출력 (메타 먼저)
+    const order = categories.length ? categories.map(c => c.id) : Object.keys(grouped);
+    // 누락된 카테고리도 마지막에 추가
+    Object.keys(grouped).forEach(c => { if (!order.includes(c)) order.push(c); });
+
+    for (const catId of order) {
+      const items = grouped[catId];
+      if (!items || items.length === 0) continue;
+      const meta = catMap[catId];
+      const groupName = meta?.name || '';
+      const groupEmoji = meta?.emoji || '';
+
+      // meta(찐 특가) 같은 명시적 그룹명 없는 카테고리 → 헤더 없이 표시
+      if (!groupName) {
+        items.forEach(t => {
+          html += topicRowHtml(t, prefs[t.id]);
+        });
+        continue;
+      }
+
+      // 아코디언 그룹
+      const isClosed = groupState[catId] === 'closed';
+      const onCount = items.filter(t => prefs[t.id]).length;
+      html += `
+        <div class="group" data-group="${catId}">
+          <button class="group-header${isClosed ? ' closed' : ''}" data-group-toggle="${catId}">
+            <span class="group-title">${groupEmoji} ${groupName}</span>
+            <span class="group-meta">${onCount}/${items.length} <span class="group-chev">▾</span></span>
+          </button>
+          <div class="group-body"${isClosed ? ' style="display:none"' : ''}>
+            ${items.map(t => topicRowHtml(t, prefs[t.id])).join('')}
+          </div>
+        </div>`;
+    }
+
     $topicsCard.innerHTML = html;
+
     // 토글 핸들러
     $topicsCard.querySelectorAll('input[data-topic]').forEach(el => {
       el.addEventListener('change', () => {
         const p = loadTopicPrefs();
         p[el.dataset.topic] = el.checked;
         saveTopicPrefs(p);
+        // 그룹 카운트 갱신
+        const groupEl = el.closest('.group');
+        if (groupEl) {
+          const allInputs = groupEl.querySelectorAll('input[data-topic]');
+          const onN = [...allInputs].filter(i => i.checked).length;
+          const meta = groupEl.querySelector('.group-meta');
+          if (meta) meta.innerHTML = `${onN}/${allInputs.length} <span class="group-chev">▾</span>`;
+        }
         toast(el.checked ? `${el.dataset.topic} 알림 켜짐` : `${el.dataset.topic} 알림 꺼짐`);
+      });
+    });
+
+    // 그룹 헤더 클릭 (접고 펴기)
+    $topicsCard.querySelectorAll('[data-group-toggle]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const catId = btn.dataset.groupToggle;
+        const body = btn.nextElementSibling;
+        const st = loadGroupState();
+        const closing = !btn.classList.contains('closed') ? true : false;
+        if (closing) {
+          btn.classList.add('closed');
+          body.style.display = 'none';
+          st[catId] = 'closed';
+        } else {
+          btn.classList.remove('closed');
+          body.style.display = '';
+          st[catId] = 'open';
+        }
+        saveGroupState(st);
       });
     });
   } catch (e) {
