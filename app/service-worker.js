@@ -78,14 +78,16 @@ self.addEventListener('push', (event) => {
         if (a.url) action_urls[a.action] = a.url;
       }
     }
+    const isSuper = topic === 'super';
     const options = {
       body:    data.body || '',
       icon:    data.icon || './icons/icon-192.png',
       badge:   './icons/icon-192.png',
-      tag:     data.tag || topic,
+      tag:     data.tag || `${topic}-${Date.now()}`,  // 찐특가는 매번 unique tag — 옛 거 안 덮어쓰게
       data:    { url: data.url || './', topic, action_urls },
-      vibrate: [200, 100, 200],
-      requireInteraction: data.requireInteraction || false,
+      vibrate: isSuper ? [500, 100, 500, 100, 500, 100, 500] : [200, 100, 200],
+      requireInteraction: data.requireInteraction || isSuper || false,
+      renotify: isSuper,
     };
     if (swActions.length > 0) options.actions = swActions;
 

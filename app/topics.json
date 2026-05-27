@@ -1,6 +1,14 @@
 {
   "topics": [
     {
+      "id": "super",
+      "emoji": "🚨",
+      "name": "찐 특가 (필수!)",
+      "description": "평소 -40% 이상 — 강조 알림 + 자동 음성",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/super-deals.html",
+      "default": true
+    },
+    {
       "id": "flight",
       "emoji": "✈️",
       "name": "항공권 특가",
