@@ -49,22 +49,6 @@
       "default": true
     },
     {
-      "id": "optimum",
-      "emoji": "💪",
-      "name": "옵티멈 뉴트리션",
-      "description": "골드 스탠다드/플래티넘",
-      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-optimum",
-      "default": true
-    },
-    {
-      "id": "whey",
-      "emoji": "💪",
-      "name": "유청단백질",
-      "description": "WPC·WPI 파우더",
-      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-whey",
-      "default": true
-    },
-    {
       "id": "forerunner570",
       "emoji": "⌚",
       "name": "가민 포러너 570",
