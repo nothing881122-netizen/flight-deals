@@ -87,6 +87,22 @@
       "description": "역대 최저가",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-buds4pro",
       "default": true
+    },
+    {
+      "id": "airpods",
+      "emoji": "🎧",
+      "name": "에어팟",
+      "description": "프로 2세대 / 4세대",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-airpods",
+      "default": true
+    },
+    {
+      "id": "xiaomi_powerbank",
+      "emoji": "🔋",
+      "name": "샤오미 슬림 보조배터리",
+      "description": "울트라슬림 5K~10K mAh",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-xiaomi_powerbank",
+      "default": true
     }
   ]
 }
