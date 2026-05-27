@@ -4,7 +4,7 @@
       "id": "flight",
       "emoji": "✈️",
       "name": "항공권 특가",
-      "description": "Google Flights ICN 출발 왕복 특가 (매일 06:50)",
+      "description": "Google Flights ICN 출발 왕복 (매일 06:50)",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/",
       "default": true
     },
@@ -12,7 +12,7 @@
       "id": "spam",
       "emoji": "🥫",
       "name": "스팸 핫딜",
-      "description": "평균 대비 저렴 (2시간마다)",
+      "description": "평균 대비 저렴",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-spam",
       "default": true
     },
@@ -20,15 +20,55 @@
       "id": "tuna",
       "emoji": "🐟",
       "name": "참치캔 핫딜",
-      "description": "평균 대비 저렴 (2시간마다)",
+      "description": "평균 대비 저렴",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-tuna",
+      "default": true
+    },
+    {
+      "id": "rice",
+      "emoji": "🍚",
+      "name": "고시히카리 10kg",
+      "description": "10kg 한 포대 기준",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-rice",
+      "default": true
+    },
+    {
+      "id": "granola",
+      "emoji": "🥣",
+      "name": "그래놀라",
+      "description": "평균 대비 저렴",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-granola",
+      "default": true
+    },
+    {
+      "id": "myprotein",
+      "emoji": "💪",
+      "name": "마이프로틴",
+      "description": "임팩트 웨이 WPC/WPI",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-myprotein",
+      "default": true
+    },
+    {
+      "id": "optimum",
+      "emoji": "💪",
+      "name": "옵티멈 뉴트리션",
+      "description": "골드 스탠다드/플래티넘",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-optimum",
+      "default": true
+    },
+    {
+      "id": "whey",
+      "emoji": "💪",
+      "name": "유청단백질",
+      "description": "WPC·WPI 파우더",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-whey",
       "default": true
     },
     {
       "id": "forerunner570",
       "emoji": "⌚",
       "name": "가민 포러너 570",
-      "description": "역대 최저가 알림",
+      "description": "역대 최저가",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-forerunner570",
       "default": true
     },
@@ -36,7 +76,7 @@
       "id": "mxmaster3",
       "emoji": "🖱️",
       "name": "로지텍 MX Master 3",
-      "description": "역대 최저가 알림 (3 / 3S 포함)",
+      "description": "3 / 3S 포함",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-mxmaster3",
       "default": true
     },
@@ -44,7 +84,7 @@
       "id": "mxmaster4",
       "emoji": "🖱️",
       "name": "로지텍 MX Master 4",
-      "description": "역대 최저가 알림",
+      "description": "역대 최저가",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-mxmaster4",
       "default": true
     },
@@ -52,7 +92,7 @@
       "id": "buds4pro",
       "emoji": "🎧",
       "name": "갤럭시 버즈4 프로",
-      "description": "역대 최저가 알림",
+      "description": "역대 최저가",
       "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-buds4pro",
       "default": true
     }
