@@ -49,6 +49,14 @@
       "default": true
     },
     {
+      "id": "yogurt",
+      "emoji": "🥛",
+      "name": "그릭요거트",
+      "description": "일동후디스·파예·빙그레·트웬티",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-yogurt",
+      "default": true
+    },
+    {
       "id": "myprotein",
       "emoji": "💪",
       "name": "마이프로틴",
