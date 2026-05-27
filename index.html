@@ -20,6 +20,7 @@
     .main{max-width:600px;margin:0 auto;padding:0 0 48px}
     .section{padding:20px 16px 4px}
     .section-title{font-size:17px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .accuracy-note{background:#FAE2D4;border-left:3px solid #D0663C;border-radius:8px;padding:10px 12px;font-size:12px;color:#7C4530;line-height:1.5;margin-bottom:14px}
     .badge{border-radius:12px;padding:2px 10px;font-size:13px;font-weight:600}
     .badge-deal{background:#F8D8C4;color:#6B3828}
     .card{background:white;border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(140,70,20,.1)}
@@ -57,28 +58,19 @@
 <body>
   <div class="header">
     <h1>✈ 항공권 특가 모니터</h1>
-    <p class="subtitle">스캔 2026-05-26 12:34</p>
+    <p class="subtitle">스캔 2026-05-27 09:34</p>
     <div class="chips">
       <span class="chip">10개 노선</span>
-      <span class="chip chip-deal">특가 1건</span>
+      <span class="chip chip-deal">특가 0건</span>
       <span class="chip">인천 출발</span>
     </div>
   </div>
   <div class="main">
     <section class="section">
-    <h2 class="section-title">🔥 오늘의 특가 <span class="badge badge-deal">1건</span></h2>
-    <div class="card deal-card">
-      <p class="card-route">✈ 인천 → 도쿄 (나리타)</p>
-      <div class="card-header">
-        <div><span class="date-range">7/9(목)~7/12(일)</span><span class="stay-tag">3박4일</span></div>
-        <span class="tag tag-weekend">📅 주말포함</span>
-      </div>
-      <div class="price-line">
-        <span class="price">253,015원</span>
-        <span class="discount">▼26%</span>
-      </div>
-      <p class="saving">중간값 대비 약 90,110원 절약</p>
-      <a href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDctMDlqBRIDSUNOcgUSA05SVBoaEgoyMDI2LTA3LTEyagUSA05SVHIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" class="btn-book" target="_blank">Google Flights 예약 →</a>
+    <div class="card no-deal-card">
+      <p class="no-deal-emoji">😅</p>
+      <p class="no-deal-text">오늘은 특가가 없습니다</p>
+      <p class="no-deal-sub">내일 다시 확인해보세요</p>
     </div>
   </section>
     <div class="routes-section">
@@ -86,29 +78,17 @@
       <div class="route-block">
       <div class="route-header">
         <span class="route-name">인천 → 도쿄 (나리타)</span>
-        <span class="route-status route-status-deal">특가 1건</span>
+        <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 253,015원 · 중간값 343,125원</p>
-      <div class="card deal-card">
-      
-      <div class="card-header">
-        <div><span class="date-range">7/9(목)~7/12(일)</span><span class="stay-tag">3박4일</span></div>
-        <span class="tag tag-weekend">📅 주말포함</span>
-      </div>
-      <div class="price-line">
-        <span class="price">253,015원</span>
-        <span class="discount">▼26%</span>
-      </div>
-      <p class="saving">중간값 대비 약 90,110원 절약</p>
-      <a href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDctMDlqBRIDSUNOcgUSA05SVBoaEgoyMDI2LTA3LTEyagUSA05SVHIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" class="btn-book" target="_blank">Google Flights 예약 →</a>
-    </div>
+      <p class="route-stats">수집 9건 · 최저 295,271원 · 중간값 350,643원</p>
+      <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
       <div class="route-header">
         <span class="route-name">인천 → 도쿄 (하네다)</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 398,425원 · 중간값 490,359원</p>
+      <p class="route-stats">수집 9건 · 최저 357,907원 · 중간값 472,519원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
@@ -116,7 +96,7 @@
         <span class="route-name">인천 → 오사카</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 219,070원 · 중간값 286,242원</p>
+      <p class="route-stats">수집 9건 · 최저 218,750원 · 중간값 280,562원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
@@ -124,7 +104,7 @@
         <span class="route-name">인천 → 후쿠오카</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 233,795원 · 중간값 303,479원</p>
+      <p class="route-stats">수집 9건 · 최저 235,828원 · 중간값 285,371원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
@@ -132,7 +112,7 @@
         <span class="route-name">인천 → 상하이</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 423,091원 · 중간값 444,791원</p>
+      <p class="route-stats">수집 9건 · 최저 444,355원 · 중간값 471,424원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
@@ -140,7 +120,7 @@
         <span class="route-name">인천 → 방콕</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 498,984원 · 중간값 597,439원</p>
+      <p class="route-stats">수집 9건 · 최저 457,104원 · 중간값 563,604원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
@@ -148,7 +128,7 @@
         <span class="route-name">인천 → 싱가포르</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 8건 · 최저 445,530원 · 중간값 486,629원</p>
+      <p class="route-stats">수집 9건 · 최저 448,225원 · 중간값 500,879원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
@@ -156,7 +136,7 @@
         <span class="route-name">인천 → LA</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 1,574,350원 · 중간값 1,807,150원</p>
+      <p class="route-stats">수집 9건 · 최저 1,573,147원 · 중간값 1,733,436원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
@@ -164,7 +144,7 @@
         <span class="route-name">인천 → 하와이</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 9건 · 최저 1,483,719원 · 중간값 1,632,519원</p>
+      <p class="route-stats">수집 9건 · 최저 1,488,000원 · 중간값 1,637,600원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     <div class="route-block">
@@ -172,7 +152,7 @@
         <span class="route-name">인천 → 시칠리아 (카타니아)</span>
         <span class="route-status route-status-none">특가 없음</span>
       </div>
-      <p class="route-stats">수집 8건 · 최저 1,915,988원 · 중간값 2,045,297원</p>
+      <p class="route-stats">수집 8건 · 최저 1,955,036원 · 중간값 2,072,235원</p>
       <p class="no-route-deal">이 기간 특가 없음</p>
     </div>
     </div>
