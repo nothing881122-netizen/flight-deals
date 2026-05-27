@@ -35,53 +35,66 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .ref-section{background:white;border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(140,70,20,.08)}
 .ref-title{font-size:17px;font-weight:700;margin-bottom:6px;color:#7C4530}
 .ref-source{font-size:12px;color:#8B7355;background:#FAE2D4;border-left:3px solid #D0663C;border-radius:6px;padding:8px 10px;margin-bottom:12px;line-height:1.5}
-.ref-table{width:100%;border-collapse:collapse;background:#FFFCF8;border-radius:8px;overflow:hidden}
-.ref-table th{background:#FAE2D4;color:#7C4530;font-size:12px;padding:8px 10px;text-align:left;font-weight:600}
-.ref-table td{padding:8px 10px;font-size:13px;border-top:1px solid #FAF0E8}
-.ref-table a{color:#B0502C;text-decoration:none;font-weight:600}
-.ref-table a:hover{text-decoration:underline}
-.ref-num{text-align:right;font-variant-numeric:tabular-nums}
-.ref-thr{color:#B0502C;font-weight:700}
-.ref-note{font-size:12px;color:#8B7355}
+.ref-table{width:100%;border-collapse:collapse;background:#FFFCF8;border-radius:8px;overflow:hidden;table-layout:fixed}
+.ref-table td{padding:8px 8px;font-size:13px;vertical-align:middle}
+.ref-row-main td{border-top:1px solid #FAF0E8;padding-top:10px}
+.ref-row-sub td{padding-top:0;padding-bottom:10px}
+.ref-cat{width:36%;text-align:center;background:#FAE2D4;border-radius:6px 0 0 6px}
+.ref-cat a{color:#B0502C;text-decoration:none;font-weight:700;font-size:13px;line-height:1.3;display:inline-block}
+.ref-cat a:hover{text-decoration:underline}
+.ref-num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.ref-label{display:block;font-size:10px;font-weight:500;color:#A89070;letter-spacing:0.5px;margin-bottom:2px}
+.ref-thr{color:#B0502C}
+.ref-thr .ref-label{color:#D0663C}
+.ref-note{font-size:11px;color:#8B7355;text-align:right;padding-top:0}
 .ref-pending{color:#A89070;font-style:italic}
 </style>
 </head>
 <body>
   <div class="header">
     <h1>🛒 키워드 핫딜 모니터</h1>
-    <p class="subtitle">2026-05-27 10:00 · 알구몬 통합 검색</p>
+    <p class="subtitle">2026-05-27 13:35 · 알구몬 통합 검색</p>
   </div>
   <div class="main">
     <section class="ref-section">
   <h2 class="ref-title">📊 기준가 종합 (자체 산출)</h2>
   <p class="ref-source">알구몬 검색 결과를 자체 분석한 값입니다. pricewagon 등 외부 기준가 사용 안 함 — 시장 변동에 자동 적응.</p>
   <table class="ref-table">
-    <thead><tr><th>카테고리</th><th>P25 (시장 25%)</th><th>알림 기준</th><th>상태</th></tr></thead>
-    <tbody><tr>
-  <td><a href="#kw-spam">🥫 스팸</a></td>
-  <td class="ref-num">1,190원</td>
-  <td class="ref-num ref-thr">952원</td>
-  <td class="ref-note">샘플 7건</td>
-</tr><tr>
-  <td><a href="#kw-tuna">🐟 참치</a></td>
-  <td class="ref-num">1,417원</td>
-  <td class="ref-num ref-thr">1,133원</td>
-  <td class="ref-note">샘플 11건</td>
-</tr><tr>
-  <td><a href="#kw-forerunner970">⌚ 가민 포러너 970</a></td>
-  <td class="ref-num">—</td>
-  <td class="ref-num ref-thr">—</td>
-  <td class="ref-note"><span class="ref-pending">샘플 1/3 부족</span></td>
-</tr><tr>
-  <td><a href="#kw-forerunner570">⌚ 가민 포러너 570</a></td>
-  <td class="ref-num">679,000원</td>
-  <td class="ref-num ref-thr">611,100원</td>
-  <td class="ref-note">샘플 3건</td>
-</tr><tr>
-  <td><a href="#kw-mxmaster4">🖱️ 로지텍 MX Master 4</a></td>
-  <td class="ref-num">131,528원</td>
-  <td class="ref-num ref-thr">118,375원</td>
-  <td class="ref-note">샘플 5건</td>
+    <tbody><tr class="ref-row-main">
+  <td rowspan="2" class="ref-cat"><a href="#kw-spam">🥫<br>스팸</a></td>
+  <td class="ref-num"><span class="ref-label">P25</span>1,190원</td>
+  <td class="ref-num ref-thr"><span class="ref-label">알림 ≤</span>952원</td>
+</tr>
+<tr class="ref-row-sub">
+  <td colspan="2" class="ref-note">샘플 7건</td>
+</tr><tr class="ref-row-main">
+  <td rowspan="2" class="ref-cat"><a href="#kw-tuna">🐟<br>참치</a></td>
+  <td class="ref-num"><span class="ref-label">P25</span>1,417원</td>
+  <td class="ref-num ref-thr"><span class="ref-label">알림 ≤</span>1,133원</td>
+</tr>
+<tr class="ref-row-sub">
+  <td colspan="2" class="ref-note">샘플 11건</td>
+</tr><tr class="ref-row-main">
+  <td rowspan="2" class="ref-cat"><a href="#kw-forerunner970">⌚<br>가민 포러너 970</a></td>
+  <td class="ref-num"><span class="ref-label">P25</span>—</td>
+  <td class="ref-num ref-thr"><span class="ref-label">알림 ≤</span>—</td>
+</tr>
+<tr class="ref-row-sub">
+  <td colspan="2" class="ref-note"><span class="ref-pending">샘플 1/3 부족</span></td>
+</tr><tr class="ref-row-main">
+  <td rowspan="2" class="ref-cat"><a href="#kw-forerunner570">⌚<br>가민 포러너 570</a></td>
+  <td class="ref-num"><span class="ref-label">P25</span>679,000원</td>
+  <td class="ref-num ref-thr"><span class="ref-label">알림 ≤</span>611,100원</td>
+</tr>
+<tr class="ref-row-sub">
+  <td colspan="2" class="ref-note">샘플 3건</td>
+</tr><tr class="ref-row-main">
+  <td rowspan="2" class="ref-cat"><a href="#kw-mxmaster4">🖱️<br>로지텍 MX Master 4</a></td>
+  <td class="ref-num"><span class="ref-label">P25</span>131,528원</td>
+  <td class="ref-num ref-thr"><span class="ref-label">알림 ≤</span>118,375원</td>
+</tr>
+<tr class="ref-row-sub">
+  <td colspan="2" class="ref-note">샘플 5건</td>
 </tr></tbody>
   </table>
 </section>
@@ -89,38 +102,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <h2>🥫 스팸</h2>
   <p class="kw-desc">스팸 캔당 평균보다 저렴</p>
   <p class="stats">P25 1,190원 · 중간값 2,510원 · 최저 1,131원 · 샘플 7/7건</p><p class="threshold">알림 기준: <b>952원/캔 이하</b> (P25의 80%)</p><p class="note">현재 기준 이하 게시물 없음</p><h4>최근 게시물</h4><div class="card">
-  <p class="card-title">스팸 클래식 340그램 18개 <span class="age">2일 전</span> <span class="src">📍 뽐뿌</span></p>
+  <p class="card-title">스팸 클래식 340그램 18개 <span class="age">3일 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">2,510원/캔</span> <span class="meta">(총 45,180원 / 18캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/981505?v=f897adaa87197b6a0a7c1df78c3c7ab7&t=1779843631378" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/981505?v=ac2b20c2a03a3bb90585fc7af314a309&t=1779856511280" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/981505" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">스팸 라이트 120g 10개 <span class="age">12일 전</span> <span class="src">📍 어미새</span></p>
   <p class="card-price"><span class="price">1,131원/캔</span> <span class="meta">(총 11,310원 / 10캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/976606?v=f897adaa87197b6a0a7c1df78c3c7ab7&t=1779843631378" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/976606?v=81330f6b2810d4bcf2f7671e144d7f64&t=1779856511281" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/976606" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">스팸 라이트 120g <span class="age">12일 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">1,190원/캔</span> <span class="meta">(총 11,900원 / 10캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/976603?v=f897adaa87197b6a0a7c1df78c3c7ab7&t=1779843631378" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/976603?v=81330f6b2810d4bcf2f7671e144d7f64&t=1779856511281" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/976603" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">스팸 클래식 200gX10개 3세트 총 30개 <span class="age">18일 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">5,691원/캔</span> <span class="meta">(총 56,916원 / 10캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/973713?v=f897adaa87197b6a0a7c1df78c3c7ab7&t=1779843631378" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/973713?v=81330f6b2810d4bcf2f7671e144d7f64&t=1779856511281" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/973713" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">스팸 클래식 340g 3번들 X 2개 3세트 18캔 <span class="age">19일 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">2,674원/캔</span> <span class="meta">(총 48,144원 / 18캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/973228?v=f897adaa87197b6a0a7c1df78c3c7ab7&t=1779843631378" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/973228?v=81330f6b2810d4bcf2f7671e144d7f64&t=1779856511281" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/973228" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div>
@@ -131,35 +144,35 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <p class="card-title">동원 참치 라이트 살코기 150g 10캔 외 6종 네이버멤버십 <span class="age">1일 전</span> <span class="src">📍 아카라이브</span></p>
   <p class="card-price"><span class="price">1,750원/캔</span> <span class="meta">(총 17,500원 / 10캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/982170?v=6d9c6aa2d3921b66761fd014debd7d19&t=1779843633142" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/982170?v=8cfdba7fac9f41942f4d905c9087cd5a&t=1779856513006" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/982170" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">동원 참치 라이트 살코기 150g 10캔 외 6종(멤버십) <span class="age">1일 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">1,750원/캔</span> <span class="meta">(총 17,500원 / 10캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/982153?v=6d9c6aa2d3921b66761fd014debd7d19&t=1779843633142" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/982153?v=8cfdba7fac9f41942f4d905c9087cd5a&t=1779856513006" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/982153" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">동원 선착순) 동원 라이트스탠다드 85g x 15캔 + 고추참치 5캔 <span class="age">3일 전</span> <span class="src">📍 아카라이브</span></p>
   <p class="card-price"><span class="price">1,366원/캔</span> <span class="meta">(총 20,500원 / 15캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/981417?v=6d9c6aa2d3921b66761fd014debd7d19&t=1779843633142" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/981417?v=8cfdba7fac9f41942f4d905c9087cd5a&t=1779856513006" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/981417" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">동원 라이트 스탠다드 참치, 250g, 36개 <span class="age">3일 전</span> <span class="src">📍 아카라이브</span></p>
   <p class="card-price"><span class="price">2,325원/캔</span> <span class="meta">(총 83,700원 / 36캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/981325?v=6d9c6aa2d3921b66761fd014debd7d19&t=1779843633142" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/981325?v=8cfdba7fac9f41942f4d905c9087cd5a&t=1779856513006" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/981325" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">동원 고추참치 150g 22캔 외 적립 4천 <span class="age">5일 전</span> <span class="src">📍 아카라이브</span></p>
   <p class="card-price"><span class="price">1,681원/캔</span> <span class="meta">(총 37,000원 / 22캔)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/980379?v=6d9c6aa2d3921b66761fd014debd7d19&t=1779843633142" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/980379?v=8cfdba7fac9f41942f4d905c9087cd5a&t=1779856513006" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/980379" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div>
@@ -174,60 +187,60 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <p class="card-title">가민 포러너 570 <span class="age">120일 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">679,000원/개</span> <span class="meta">(총 679,000원 / 1개)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/930110?v=98cc1ee86df77f82a33d06ce54f8fabb&t=1779843639088" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/930110?v=42b60d4f00e72150c123c39bb3f77a4a&t=1779856518856" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/930110" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">가민 포러너 570 42,47mm <span class="age">166일 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">719,150원/개</span> <span class="meta">(총 719,150원 / 1개)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/914020?v=98cc1ee86df77f82a33d06ce54f8fabb&t=1779843639088" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/914020?v=42b60d4f00e72150c123c39bb3f77a4a&t=1779856518856" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/914020" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">Forerunner 570 <span class="age">119일 전</span> <span class="src">📍 어미새</span></p>
   <p class="card-price"><span class="price">679,000원/개</span> <span class="meta">(총 679,000원 / 1개)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/930621?v=83eb88ac14bfcf7d7776487fba186201&t=1779843640226" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/930621?v=27c1cd73e29c014e1d7fcfb0926c90da&t=1779856520106" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/930621" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div>
 </section><section class="keyword" id="kw-mxmaster4">
   <h2>🖱️ 로지텍 MX Master 4</h2>
   <p class="kw-desc">역대 최저가 알림</p>
-  <p class="stats">P25 131,528원 · 중간값 133,774원 · 최저 131,528원 · 샘플 5/9건</p><p class="threshold">알림 기준: <b>118,375원/개 이하</b> (P25의 90%)</p><p class="note">현재 기준 이하 게시물 없음</p><h4>최근 게시물</h4><div class="card">
+  <p class="stats">P25 131,528원 · 중간값 133,325원 · 최저 131,528원 · 샘플 5/9건</p><p class="threshold">알림 기준: <b>118,375원/개 이하</b> (P25의 90%)</p><p class="note">현재 기준 이하 게시물 없음</p><h4>최근 게시물</h4><div class="card">
   <p class="card-title">로지텍 MX Master 4 무선 마우스 <span class="age">62일 전</span> <span class="src">📍 퀘이사존</span></p>
-  <p class="card-price"><span class="price">121,893원/개</span> <span class="meta">(총 121,893원 / 1개)</span> </p>
+  <p class="card-price"><span class="price">121,484원/개</span> <span class="meta">(총 121,484원 / 1개)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/953614?v=74fffe5c82d25c00f86d80bad17329d2&t=1779843643207" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/953614?v=3675556e144727d5c145ac7596528513&t=1779856523096" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/953614" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">로지텍 MX Master 4 무선 블루투스 마우스 당일출고 (직구) <span class="age">89일 전</span> <span class="src">📍 퀘이사존</span></p>
   <p class="card-price"><span class="price">131,528원/개</span> <span class="meta">(총 131,528원 / 1개)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/942448?v=74fffe5c82d25c00f86d80bad17329d2&t=1779843643207" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/942448?v=3675556e144727d5c145ac7596528513&t=1779856523096" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/942448" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">로지텍 MX Master 4 무선 블루투스 마우스 <span class="age">89일 전</span> <span class="src">📍 아카라이브</span></p>
   <p class="card-price"><span class="price">131,528원/개</span> <span class="meta">(총 131,528원 / 1개)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/942267?v=74fffe5c82d25c00f86d80bad17329d2&t=1779843643207" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/942267?v=3675556e144727d5c145ac7596528513&t=1779856523096" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/942267" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">로지텍 MX Master 4 무선 블루투스 마우스 2컬러 <span class="age">106일 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">146,900원/개</span> <span class="meta">(총 146,900원 / 1개)</span> </p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/936622?v=74fffe5c82d25c00f86d80bad17329d2&t=1779843643207" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/936622?v=3675556e144727d5c145ac7596528513&t=1779856523096" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/936622" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div><div class="card">
   <p class="card-title">로지텍 mx master4 <span class="age">145일 전</span> <span class="src">📍 클리앙</span></p>
   <p class="card-price"><span class="price">109,000원/개</span> <span class="meta">(총 109,000원 / 1개)</span> <span class="badge-deal">🔥 알림 기준 이하</span></p>
   <div class="card-actions">
-    <a href="https://www.algumon.com/l/d/920875?v=74fffe5c82d25c00f86d80bad17329d2&t=1779843643207" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
+    <a href="https://www.algumon.com/l/d/920875?v=3675556e144727d5c145ac7596528513&t=1779856523096" target="_blank" class="btn btn-primary">🛒 쇼핑몰로</a>
     <a href="https://www.algumon.com/n/deal/920875" target="_blank" class="btn">알구몬 상세</a>
   </div>
 </div>
