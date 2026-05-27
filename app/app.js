@@ -134,12 +134,16 @@ async function renderTopics() {
       // 기본값: 저장된 값이 있으면 그것, 없으면 t.default
       const on = prefs[t.id] === undefined ? t.default : prefs[t.id];
       prefs[t.id] = on;
+      const reportLink = t.report_url
+        ? `<a class="topic-report" href="${t.report_url}" target="_blank" rel="noopener">📋 리포트 보기 →</a>`
+        : '';
       html += `
         <div class="topic-row">
           <div class="topic-emoji">${t.emoji}</div>
           <div class="topic-info">
             <div class="topic-name">${t.name}</div>
             <div class="topic-desc">${t.description || ''}</div>
+            ${reportLink}
           </div>
           <label class="switch">
             <input type="checkbox" data-topic="${t.id}" ${on ? 'checked' : ''}>
