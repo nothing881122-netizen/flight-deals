@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>브랜드 트렌드 분석</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#FAF7F2;color:#2C1810;padding-bottom:48px}
+.header{background:linear-gradient(135deg,#D0663C,#B0502C);color:white;padding:48px 20px 24px;text-align:center}
+.header h1{font-size:22px;font-weight:700;margin-bottom:6px}
+.subtitle{font-size:13px;opacity:.85}
+.main{max-width:680px;margin:0 auto;padding:16px}
+.intro{background:#FAE2D4;border-left:3px solid #D0663C;border-radius:8px;padding:10px 12px;font-size:13px;color:#7C4530;margin-bottom:14px;line-height:1.5}
+.kw{background:white;border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(140,70,20,.08)}
+.kw h2{font-size:18px;font-weight:700;margin-bottom:10px}
+.kw .count{font-size:13px;color:#8B7355;font-weight:500;margin-left:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px}
+th{background:#FAE2D4;color:#7C4530;padding:6px 8px;text-align:left;font-size:12px}
+td{padding:6px 8px;border-top:1px solid #FAF0E8}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.note{color:#8B7355;text-align:center;font-style:italic}
+.rec{color:#B0502C;font-weight:700;font-size:12px}
+.warn{color:#A89070;font-style:italic;font-size:12px}
+.tokens{font-size:12px;color:#8B7355;background:#FAF0E8;border-radius:8px;padding:8px 10px;margin-top:6px}
+.token{display:inline-block;margin:2px 6px 2px 0}
+.token em{color:#B0502C;font-weight:700;font-style:normal}
+.footer{text-align:center;padding:24px 16px;font-size:12px;color:#B8986A}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📈 브랜드 트렌드 분석</h1>
+  <p class="subtitle">2026-05-27 15:57 · 월간 분석 리포트</p>
+</div>
+<div class="main">
+  <p class="intro">현재 등록된 sub_brand 의 빈도/평균 단가 + 잠재 신규 브랜드 후보를 보여드립니다. <b>+ 추가 권장</b> 표시된 브랜드는 keywords.json 에 sub_brand 로 등록 검토하세요.</p>
+  <section class="kw">
+  <h2>🥫 스팸 <span class="count">16건</span></h2>
+  <table>
+    <thead><tr><th></th><th>브랜드</th><th>빈도</th><th>평균 단가</th><th>제안</th></tr></thead>
+    <tbody><tr>
+  <td>⚪</td><td>CJ</td>
+  <td class="num">16</td><td class="num">3,893원/단위</td>
+  <td> <span class="rec">+ 추가 권장</span></td>
+</tr></tbody>
+  </table>
+  
+</section><section class="kw">
+  <h2>🐟 참치캔 <span class="count">18건</span></h2>
+  <table>
+    <thead><tr><th></th><th>브랜드</th><th>빈도</th><th>평균 단가</th><th>제안</th></tr></thead>
+    <tbody><tr>
+  <td>✅</td><td>동원</td>
+  <td class="num">10</td><td class="num">1,684원/단위</td>
+  <td></td>
+</tr><tr>
+  <td>✅</td><td>사조</td>
+  <td class="num">1</td><td class="num">1,332원/단위</td>
+  <td> <span class="warn">↓ 활동 약함</span></td>
+</tr></tbody>
+  </table>
+  <p class="tokens"><b>미매칭 자주 등장 토큰</b>: <span class="token">85g <em>7</em></span> <span class="token">라이트스탠다드 <em>5</em></span> <span class="token">6개 <em>3</em></span> <span class="token">리챔 <em>2</em></span> <span class="token">200g <em>2</em></span> <span class="token">2개 <em>2</em></span> <span class="token">4개 <em>2</em></span> <span class="token">마이티펫 <em>2</em></span> <span class="token">고양이 <em>2</em></span> <span class="token">라이트스탠다드참치 <em>2</em></span></p>
+</section><section class="kw">
+  <h2>🥣 그래놀라 <span class="count">20건</span></h2>
+  <table>
+    <thead><tr><th></th><th>브랜드</th><th>빈도</th><th>평균 단가</th><th>제안</th></tr></thead>
+    <tbody><tr>
+  <td>✅</td><td>켈로그</td>
+  <td class="num">6</td><td class="num">4,444원/단위</td>
+  <td></td>
+</tr><tr>
+  <td>✅</td><td>동서</td>
+  <td class="num">6</td><td class="num">3,272원/단위</td>
+  <td></td>
+</tr><tr>
+  <td>✅</td><td>산과들에</td>
+  <td class="num">4</td><td class="num">315원/단위</td>
+  <td></td>
+</tr><tr>
+  <td>⚪</td><td>포스트</td>
+  <td class="num">1</td><td class="num">15원/단위</td>
+  <td></td>
+</tr></tbody>
+  </table>
+  <p class="tokens"><b>미매칭 자주 등장 토큰</b>: <span class="token">시리얼 <em>2</em></span> <span class="token">350g <em>2</em></span> <span class="token">제로슈거 <em>1</em></span> <span class="token">2개 <em>1</em></span> <span class="token">다크초코 <em>1</em></span> <span class="token">오곡푸레이크 <em>1</em></span> <span class="token">570g <em>1</em></span> <span class="token">현미푸레이크 <em>1</em></span> <span class="token">550g <em>1</em></span> <span class="token">저당 <em>1</em></span></p>
+</section>
+</div>
+<div class="footer">매월 1일 자동 분석 · 알구몬 기반</div>
+</body>
+</html>
