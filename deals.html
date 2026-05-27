@@ -52,7 +52,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <body>
   <div class="header">
     <h1>🛒 키워드 핫딜 모니터</h1>
-    <p class="subtitle">2026-05-27 17:04 · 알구몬 통합 검색</p>
+    <p class="subtitle">2026-05-27 17:07 · 알구몬 통합 검색</p>
   </div>
   <div class="main">
     <section class="ref-section">
@@ -116,7 +116,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <a href="https://www.algumon.com/n/deal/981505" target="_blank" class="btn btn-primary">딜 보러 가기 →</a>
   </div>
 </div><div class="card">
-  <p class="card-title">스팸 라이트 120g 10개 <span class="age">12일 전</span> <span class="src">📍 어미새</span></p>
+  <p class="card-title">스팸 라이트 120g 10개 <span class="age">13일 전</span> <span class="src">📍 어미새</span></p>
   <p class="card-price"><span class="price">1,131원/캔</span> <span class="meta">(총 11,310원 / 10캔)</span> </p>
   <div class="card-actions">
     <a href="https://www.algumon.com/n/deal/976606" target="_blank" class="btn btn-primary">딜 보러 가기 →</a>
@@ -162,7 +162,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <h2>🥛 그릭요거트</h2>
   <p class="kw-desc">전체 브랜드 통합 — 평소 대비 저렴</p>
   <p class="stats">평소 가격 <b>3,700원</b> · 중간값 3,700원 · 최저 3,400원</p><p class="rep-note">📌 일동후디스 기준</p><p class="threshold">대박 기준: <b>2,960원/개 이하</b></p><h4>최근 게시물</h4><div class="card">
-  <p class="card-title">빙그레 투게더 바닐라 5통+커피음료 1개 증정 <span class="age">21분 전</span> <span class="src">📍 뽐뿌</span></p>
+  <p class="card-title">빙그레 투게더 바닐라 5통+커피음료 1개 증정 <span class="age">23분 전</span> <span class="src">📍 뽐뿌</span></p>
   <p class="card-price"><span class="price">4,568원/개</span> <span class="meta">(총 22,840원 / 5개)</span> </p>
   <div class="card-actions">
     <a href="https://www.algumon.com/n/deal/982997" target="_blank" class="btn btn-primary">딜 보러 가기 →</a>
@@ -231,5 +231,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </section>
   </div>
   <div class="footer">알구몬 통합 핫딜 · 키워드별 P25 자체 산출</div>
+  
+<script>
+// PWA 와 같은 origin 이라 localStorage 공유. 사용자가 PWA 설정에서 OFF 한 토픽은 리포트에서도 숨김.
+(function(){
+  let prefs = {};
+  try { prefs = JSON.parse(localStorage.getItem('alimi.topics') || '{}'); } catch(e){}
+  // 사용자가 PWA 를 한 번도 안 본 경우 prefs 비어있음 → 모두 표시 (기본)
+  if (!prefs || Object.keys(prefs).length === 0) return;
+  // 키워드 섹션 숨김
+  document.querySelectorAll('section.keyword').forEach(sec => {
+    const id = sec.id.replace(/^kw-/, '');
+    if (prefs[id] === false) sec.style.display = 'none';
+  });
+  // 종합표 row 숨김
+  document.querySelectorAll('.ref-table tbody tr').forEach(tr => {
+    const a = tr.querySelector('a[href^="#kw-"]');
+    if (!a) return;
+    const id = a.getAttribute('href').replace('#kw-', '');
+    if (prefs[id] === false) tr.style.display = 'none';
+  });
+})();
+</script>
+
 </body>
 </html>
