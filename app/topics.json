@@ -65,19 +65,11 @@
       "default": true
     },
     {
-      "id": "mxmaster3",
+      "id": "mxmaster",
       "emoji": "🖱️",
-      "name": "로지텍 MX Master 3",
-      "description": "3 / 3S 포함",
-      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-mxmaster3",
-      "default": true
-    },
-    {
-      "id": "mxmaster4",
-      "emoji": "🖱️",
-      "name": "로지텍 MX Master 4",
-      "description": "역대 최저가",
-      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-mxmaster4",
+      "name": "로지텍 MX Master",
+      "description": "Master 3 / 4 통합",
+      "report_url": "https://nothing881122-netizen.github.io/flight-deals/deals.html#kw-mxmaster",
       "default": true
     },
     {
