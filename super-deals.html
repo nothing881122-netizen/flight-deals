@@ -2,8 +2,105 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=deals.html">
-  <title>알리미</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>🚨 찐 특가</title>
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:linear-gradient(180deg,#7A1A1A 0%,#2C0808 100%);color:white;min-height:100vh;padding-bottom:48px}
+.header{padding:48px 20px 20px;text-align:center}
+.header h1{font-size:28px;font-weight:900;text-shadow:0 2px 12px rgba(255,200,0,.4);animation:pulse 2s ease-in-out infinite}
+.subtitle{font-size:13px;opacity:.7;margin-top:8px}
+.main{max-width:600px;margin:0 auto;padding:16px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.super-card{background:linear-gradient(135deg,#FFE066 0%,#FF6B35 100%);color:#2C0808;border-radius:24px;padding:24px;margin-bottom:18px;box-shadow:0 12px 40px rgba(255,140,0,.4);position:relative;overflow:hidden;transition:transform .2s}
+.super-card.highlight{box-shadow:0 0 0 4px #FFD700, 0 12px 40px rgba(255,200,0,.6);transform:scale(1.02)}
+.badge-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.badge-emoji{font-size:24px}
+.badge-text{font-weight:900;font-size:14px;letter-spacing:.5px;background:#8B0000;color:white;padding:5px 12px;border-radius:14px}
+.badge-pct{font-size:22px;font-weight:900;color:#8B0000;margin-left:auto}
+.kw-line{font-size:14px;font-weight:600;color:#5C1A00;margin-bottom:6px}
+.title{font-size:17px;font-weight:700;line-height:1.4;margin-bottom:18px;color:#2C0808}
+.price-row{display:flex;align-items:baseline;margin-bottom:6px}
+.big-price{font-size:54px;font-weight:900;color:#8B0000;line-height:1;letter-spacing:-1px}
+.big-price .unit{font-size:18px;font-weight:600;margin-left:6px;color:#5C1A00}
+.compare{font-size:14px;color:#5C1A00;margin-bottom:18px}
+.compare s{opacity:.6}
+.compare b{color:#8B0000;font-size:16px}
+.cta{display:block;background:#2C0808;color:#FFE066;text-align:center;padding:16px;border-radius:14px;text-decoration:none;font-weight:800;font-size:16px;letter-spacing:.5px}
+.cta:active{background:#000}
+.empty-card{background:rgba(255,255,255,.08);border-radius:24px;padding:48px 24px;text-align:center;backdrop-filter:blur(10px)}
+.empty-emoji{font-size:48px;margin-bottom:14px}
+.empty-text{font-size:18px;font-weight:700;margin-bottom:8px}
+.empty-sub{font-size:13px;opacity:.7;line-height:1.5}
+.footer{text-align:center;padding:24px;font-size:11px;opacity:.5}
+</style>
 </head>
-<body></body>
+<body>
+  <div class="header">
+    <h1>🚨🔥 찐 특가 🔥🚨</h1>
+    <p class="subtitle">2026-06-02 22:01 · 평소 가격의 60% 이하만</p>
+  </div>
+  <div class="main">
+    <article class="super-card" data-id="986227">
+  <div class="badge-row">
+    <span class="badge-emoji">🚨🔥⚡</span>
+    <span class="badge-text">역대급 찐 특가</span>
+    <span class="badge-pct">-58%</span>
+  </div>
+  <p class="kw-line">🐟 참치캔 · 동원</p>
+  <h2 class="title">동원 덴마크 인포켓치즈 오리지널/라이트 20g 30개</h2>
+  <div class="price-row">
+    <span class="big-price">458<span class="unit">원/캔</span></span>
+  </div>
+  <p class="compare">평소 <s>1,102원</s> → 지금 <b>458원</b></p>
+  <a class="cta" href="https://www.algumon.com/n/deal/986227" target="_blank">🛒 지금 사러 가기 →</a>
+</article>
+<article class="super-card" data-id="959357">
+  <div class="badge-row">
+    <span class="badge-emoji">🚨🔥⚡</span>
+    <span class="badge-text">역대급 찐 특가</span>
+    <span class="badge-pct">-48%</span>
+  </div>
+  <p class="kw-line">🧺 세탁세제</p>
+  <h2 class="title">비트 딥클린 파워 액체세제 일반 리필 2L 6개 (T멤)</h2>
+  <div class="price-row">
+    <span class="big-price">3,370<span class="unit">원/개</span></span>
+  </div>
+  <p class="compare">평소 <s>6,560원</s> → 지금 <b>3,370원</b></p>
+  <a class="cta" href="https://www.algumon.com/n/deal/959357" target="_blank">🛒 지금 사러 가기 →</a>
+</article>
+  </div>
+  <div class="footer">🚨 평소 가격 대비 -40% 이상 핫딜만 표시</div>
+  
+<script>
+(function(){
+  const params = new URLSearchParams(location.search);
+  const targetId = params.get('id');
+  // 강조 처리
+  if (targetId) {
+    document.querySelectorAll('.super-card').forEach(c => {
+      if (c.dataset.id === targetId) {
+        c.classList.add('highlight');
+        c.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    });
+  }
+  // TTS 자동 재생 (찐 특가 1건만)
+  const tts_card = document.querySelector('.super-card.highlight') || document.querySelector('.super-card');
+  if (tts_card && 'speechSynthesis' in window) {
+    const kw = tts_card.querySelector('.kw-line')?.textContent.trim() || '';
+    const price = tts_card.querySelector('.big-price')?.textContent.trim() || '';
+    const text = `찐 특가 발견! ${kw}, ${price}`;
+    setTimeout(() => {
+      try {
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'ko-KR';
+        u.rate = 1.05;
+        speechSynthesis.speak(u);
+      } catch(e){}
+    }, 400);
+  }
+})();
+</script>
+</body>
 </html>
