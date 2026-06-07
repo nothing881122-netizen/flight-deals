@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🧭 항공권 도착지 추천</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#0F1B2D;color:#D5E0F0;min-height:100vh;padding-bottom:48px}
+.header{padding:32px 20px 16px;border-bottom:1px solid #1E3050;background:linear-gradient(135deg,#15294a,#0F1B2D)}
+.header h1{font-size:20px;font-weight:700;color:#fff}
+.header .sub{font-size:12px;color:#7C90B0;margin-top:6px}
+.main{max-width:680px;margin:0 auto;padding:16px}
+.note{font-size:12px;color:#9FB0CC;background:#15294a;border-left:3px solid #4F8FD9;border-radius:6px;padding:10px 12px;margin-bottom:14px;line-height:1.6}
+.cand{background:#15233c;border:1px solid #243a5e;border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.cand.top{border-color:#4F8FD9;box-shadow:0 0 0 1px #4F8FD9 inset}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+.name{font-size:17px;font-weight:700;color:#fff}
+.name small{font-size:12px;color:#7C90B0;font-weight:500;margin-left:4px}
+.price{font-size:18px;font-weight:700;color:#7EC4FF;white-space:nowrap}
+.meta{font-size:12px;color:#9FB0CC;margin-bottom:10px}
+.badge{display:inline-block;background:#1d4ed8;color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;margin-left:6px}
+.actions{display:flex;gap:8px}
+.btn{font-size:12px;padding:6px 12px;border:1px solid #243a5e;border-radius:8px;color:#9FB0CC;text-decoration:none}
+.btn:hover{border-color:#4F8FD9;color:#7EC4FF}
+.pick{font-size:12px;font-weight:600;padding:6px 12px;border:1px solid #243a5e;border-radius:8px;background:transparent;color:#D5E0F0;cursor:pointer}
+.pick:before{content:"⬜ "}
+.pick.on{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+.pick.on:before{content:"✅ "}
+.empty{background:#15233c;border:1px dashed #243a5e;border-radius:12px;padding:36px;text-align:center;color:#7C90B0}
+.bar{position:sticky;top:0;z-index:9;background:rgba(15,27,45,.95);backdrop-filter:blur(8px);border-bottom:1px solid #1E3050;padding:10px 16px;display:flex;gap:8px;align-items:center}
+.bar .cnt{flex:1;font-size:12px;color:#9FB0CC}.bar .cnt b{color:#fff}
+.bar button{background:#1d4ed8;color:#fff;border:none;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
+.bar button:disabled{opacity:.35}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#2563eb;color:#fff;padding:10px 18px;border-radius:24px;font-size:13px;font-weight:600;opacity:0;transition:.2s;pointer-events:none;z-index:20}
+.toast.show{opacity:1}
+.footer{text-align:center;padding:24px;font-size:11px;color:#4A5670}
+</style></head>
+<body>
+  <div class="header"><h1>🧭 항공권 도착지 추천</h1><p class="sub">2026-06-07 17:45 · ICN 출발 · 신규 후보 스캔</p></div>
+  <div class="bar"><span class="cnt">선택 <b id="n">0</b>개</span>
+  <button id="copy" disabled>📋 복사</button><button id="clear" disabled style="background:transparent;border:1px solid #243a5e">↺</button></div>
+  <div class="main"><div class="note">후보 도착지를 round-trip 으로 스캔한 결과입니다.
+  마음에 드는 곳 ✅ → <b>[복사]</b> → 채팅에 붙여넣으면 항공권 노선(config.json)에 추가해 드려요.</div><div class="cand top">
+  <div class="head"><span class="name">바르셀로나<small>BCN</small></span><span class="price">841,700원~</span></div>
+  <div class="meta">유럽 · 6박 · 최저편 Lufthansa 경유 <span class="badge">특가 1회</span></div>
+  <div class="actions">
+    <a class="btn" href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDctMDdqBRIDSUNOcgUSA0JDThoaEgoyMDI2LTA3LTEzagUSA0JDTnIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" target="_blank">Google Flights →</a>
+    <button class="pick" data-cand='{"dest": "BCN", "name": "바르셀로나", "stay": 6}'>노선 추가 후보</button>
+  </div>
+</div>
+<div class="cand">
+  <div class="head"><span class="name">나고야<small>NGO</small></span><span class="price">265,500원~</span></div>
+  <div class="meta">일본 · 3박 · 최저편 ? </div>
+  <div class="actions">
+    <a class="btn" href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDctMTlqBRIDSUNOcgUSA05HTxoaEgoyMDI2LTA3LTIyagUSA05HT3IFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" target="_blank">Google Flights →</a>
+    <button class="pick" data-cand='{"dest": "NGO", "name": "나고야", "stay": 3}'>노선 추가 후보</button>
+  </div>
+</div>
+<div class="cand">
+  <div class="head"><span class="name">타이베이<small>TPE</small></span><span class="price">296,485원~</span></div>
+  <div class="meta">대만 · 3박 · 최저편 Tigerair Taiwan 직항 </div>
+  <div class="actions">
+    <a class="btn" href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDctMzFqBRIDSUNOcgUSA1RQRRoaEgoyMDI2LTA4LTAzagUSA1RQRXIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" target="_blank">Google Flights →</a>
+    <button class="pick" data-cand='{"dest": "TPE", "name": "타이베이", "stay": 3}'>노선 추가 후보</button>
+  </div>
+</div>
+<div class="cand">
+  <div class="head"><span class="name">세부<small>CEB</small></span><span class="price">315,900원~</span></div>
+  <div class="meta">동남아 · 4박 · 최저편 Jin Air 직항 </div>
+  <div class="actions">
+    <a class="btn" href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDctMTlqBRIDSUNOcgUSA0NFQhoaEgoyMDI2LTA3LTIzagUSA0NFQnIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" target="_blank">Google Flights →</a>
+    <button class="pick" data-cand='{"dest": "CEB", "name": "세부", "stay": 4}'>노선 추가 후보</button>
+  </div>
+</div>
+<div class="cand">
+  <div class="head"><span class="name">오키나와<small>OKA</small></span><span class="price">359,400원~</span></div>
+  <div class="meta">일본 · 3박 · 최저편 Jeju Air 직항 </div>
+  <div class="actions">
+    <a class="btn" href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDctMTlqBRIDSUNOcgUSA09LQRoaEgoyMDI2LTA3LTIyagUSA09LQXIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" target="_blank">Google Flights →</a>
+    <button class="pick" data-cand='{"dest": "OKA", "name": "오키나와", "stay": 3}'>노선 추가 후보</button>
+  </div>
+</div>
+<div class="cand">
+  <div class="head"><span class="name">다낭<small>DAD</small></span><span class="price">369,317원~</span></div>
+  <div class="meta">동남아 · 3박 · 최저편 Vietjet 직항 </div>
+  <div class="actions">
+    <a class="btn" href="https://www.google.com/travel/flights?tfs=GhoSCjIwMjYtMDctMTlqBRIDSUNOcgUSA0RBRBoaEgoyMDI2LTA3LTIyagUSA0RBRHIFEgNJQ05CAQFIAZgBAQ%3D%3D&hl=ko&curr=KRW" target="_blank">Google Flights →</a>
+    <button class="pick" data-cand='{"dest": "DAD", "name": "다낭", "stay": 3}'>노선 추가 후보</button>
+  </div>
+</div></div>
+  <div class="footer">internal · 후보는 routes_candidates.json 에서 관리</div>
+  
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  const KEY='flightscout.picks';
+  const load=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch{return[]}};
+  const save=a=>localStorage.setItem(KEY,JSON.stringify(a));
+  let picks=load();
+  const $t=document.getElementById('toast'),$n=document.getElementById('n'),
+        $c=document.getElementById('copy'),$x=document.getElementById('clear');
+  const toast=m=>{$t.textContent=m;$t.classList.add('show');setTimeout(()=>$t.classList.remove('show'),1700)};
+  function ui(){
+    if($n)$n.textContent=picks.length;
+    [$c,$x].forEach(b=>{if(b)b.disabled=!picks.length});
+    const ids=new Set(picks.map(p=>p.dest));
+    document.querySelectorAll('.pick').forEach(b=>{
+      try{const c=JSON.parse(b.dataset.cand);
+        if(ids.has(c.dest)){b.classList.add('on');b.textContent='선택됨'}
+        else{b.classList.remove('on');b.textContent='노선 추가 후보'}}catch(e){}});
+  }
+  document.querySelectorAll('.pick').forEach(b=>b.addEventListener('click',()=>{
+    try{const c=JSON.parse(b.dataset.cand);const i=picks.findIndex(p=>p.dest===c.dest);
+      if(i>=0)picks.splice(i,1);else picks.push(c);save(picks);ui()}catch(e){}}));
+  function text(){return 'config.json 항공권 노선 추가해줘:\n'+picks.map(p=>`- ICN→${p.dest} (${p.name}, ${p.stay}박)`).join('\n')}
+  if($c)$c.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(text());toast(picks.length+'개 복사됨 — 채팅에 붙여넣기')}catch(e){toast('복사 실패')}});
+  if($x)$x.addEventListener('click',()=>{if(picks.length&&confirm('선택 해제?')){picks=[];save(picks);ui();toast('해제됨')}});
+  ui();
+})();
+</script>
+
+</body></html>
