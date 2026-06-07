@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🛠 알리미 관리 콘솔 (미리보기)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#F4F6F9;color:#1F2937;min-height:100vh}
+.banner{background:#FEF3C7;color:#92400E;font-size:12px;text-align:center;padding:7px;font-weight:600}
+/* 로그인 */
+#login{max-width:360px;margin:60px auto;padding:28px 24px;background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(30,40,60,.1);text-align:center}
+#login h1{font-size:22px;margin-bottom:6px}
+#login p{font-size:13px;color:#6B7280;margin-bottom:20px}
+#login input{width:100%;padding:13px 14px;border:1px solid #D1D5DB;border-radius:10px;font-size:15px;margin-bottom:12px}
+#login button{width:100%;padding:13px;background:#2563EB;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer}
+/* 앱 */
+#app{display:none;max-width:680px;margin:0 auto;padding-bottom:60px}
+.top{background:linear-gradient(135deg,#2563EB,#1E40AF);color:#fff;padding:32px 20px 20px}
+.top h1{font-size:20px}.top .sub{font-size:12px;opacity:.85;margin-top:5px}
+.summary{display:flex;gap:10px;margin-top:16px}
+.scard{flex:1;background:rgba(255,255,255,.15);border-radius:12px;padding:12px;text-align:center}
+.scard b{font-size:22px;display:block}.scard span{font-size:11px;opacity:.85}
+.tabs{display:flex;background:#fff;position:sticky;top:0;z-index:5;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.tab{flex:1;text-align:center;padding:13px 0;font-size:13px;font-weight:600;color:#9CA3AF;cursor:pointer;border-bottom:2px solid transparent}
+.tab.on{color:#2563EB;border-bottom-color:#2563EB}
+.sec{padding:16px;display:none}.sec.on{display:block}
+.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card h2{font-size:14px;font-weight:700;margin-bottom:12px}
+.item{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid #F3F4F6;font-size:14px}
+.item:first-of-type{border-top:none}
+.item .x{color:#EF4444;font-size:18px;cursor:pointer;padding:0 6px}
+.muted{font-size:12px;color:#9CA3AF;margin:6px 0}
+.add{display:flex;gap:8px;margin-top:10px}
+.add input{flex:1;padding:9px 11px;border:1px solid #D1D5DB;border-radius:8px;font-size:13px}
+.add button{padding:9px 14px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+.chip{display:inline-block;background:#EEF2FF;color:#3730A3;border-radius:10px;padding:4px 10px;font-size:12px;margin:3px 4px 3px 0}
+.chip .x{color:#9CA3AF;margin-left:5px;cursor:pointer}
+.rec{border:1px solid #E5E7EB;border-radius:12px;padding:13px;margin-bottom:10px}
+.rec .h{display:flex;justify-content:space-between;align-items:baseline}
+.rec .nm{font-size:15px;font-weight:700}.rec .pr{font-size:15px;font-weight:700;color:#2563EB}
+.rec .mt{font-size:12px;color:#6B7280;margin:5px 0 9px}
+.rec .addbtn{width:100%;padding:9px;background:#10B981;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+.sched{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid #F3F4F6}
+.sched:first-of-type{border-top:none}
+.toggle{width:42px;height:24px;background:#10B981;border-radius:12px;position:relative;cursor:pointer}
+.toggle.off{background:#D1D5DB}
+.toggle:after{content:"";position:absolute;width:20px;height:20px;background:#fff;border-radius:50%;top:2px;right:2px;transition:.2s}
+.toggle.off:after{right:20px}
+.time{font-size:12px;color:#374151;background:#F3F4F6;border-radius:6px;padding:3px 8px}
+</style>
+</head>
+<body>
+<div class="banner">⚠ 미리보기(목업) — 버튼은 아직 동작하지 않습니다. 디자인·기능 확인용</div>
+
+<!-- 로그인 -->
+<div id="login">
+  <h1>🛠 알리미 관리</h1>
+  <p>관리 콘솔에 로그인</p>
+  <input type="password" placeholder="비밀번호" id="pw">
+  <button onclick="document.getElementById('login').style.display='none';document.getElementById('app').style.display='block'">로그인</button>
+  <p style="margin-top:14px;font-size:11px">미리보기: 아무거나 입력 후 로그인</p>
+</div>
+
+<!-- 앱 -->
+<div id="app">
+  <div class="top">
+    <h1>🛠 알리미 관리 콘솔</h1>
+    <div class="sub">실시간 추가/삭제 · 즉시 반영</div>
+    <div class="summary">
+      <div class="scard"><b>10</b><span>항공권 노선</span></div>
+      <div class="scard"><b>17</b><span>핫딜 키워드</span></div>
+      <div class="scard"><b>3</b><span>오늘 알람</span></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab on" onclick="tab(0)">✈ 항공권</div>
+    <div class="tab" onclick="tab(1)">🛒 핫딜</div>
+    <div class="tab" onclick="tab(2)">🧭 추천</div>
+    <div class="tab" onclick="tab(3)">⏰ 스케줄</div>
+  </div>
+
+  <!-- 항공권 -->
+  <div class="sec on" id="s0">
+    <div class="card">
+      <h2>✈ 항공권 노선 (10)</h2>
+      <div class="item"><span>인천 → 도쿄 (나리타) · 3박</span><span class="x">✕</span></div>
+      <div class="item"><span>인천 → 오사카 · 3박</span><span class="x">✕</span></div>
+      <div class="item"><span>인천 → 방콕 · 3박</span><span class="x">✕</span></div>
+      <div class="item"><span>인천 → LA · 8박</span><span class="x">✕</span></div>
+      <div class="muted">+ 6개 …</div>
+      <div class="add">
+        <input placeholder="도착지 코드 (예: DAD)"><input placeholder="박" style="max-width:60px">
+        <button>추가</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핫딜 -->
+  <div class="sec" id="s1">
+    <div class="card">
+      <h2>🛒 핫딜 키워드 (17)</h2>
+      <div class="muted">식품</div>
+      <div>
+        <span class="chip">스팸<span class="x">✕</span></span>
+        <span class="chip">참치캔<span class="x">✕</span></span>
+        <span class="chip">두유박스<span class="x">✕</span></span>
+        <span class="chip">커피믹스<span class="x">✕</span></span>
+      </div>
+      <div class="muted">생활/위생</div>
+      <div>
+        <span class="chip">세탁세제<span class="x">✕</span></span>
+        <span class="chip">화장지<span class="x">✕</span></span>
+        <span class="chip">바디워시<span class="x">✕</span></span>
+      </div>
+      <div class="add"><input placeholder="키워드 추가 (예: 라면 박스)"><button>추가</button></div>
+    </div>
+  </div>
+
+  <!-- 추천 -->
+  <div class="sec" id="s2">
+    <div class="card">
+      <h2>🧭 항공권 도착지 추천</h2>
+      <div class="rec">
+        <div class="h"><span class="nm">다낭 <small style="color:#9CA3AF">DAD</small></span><span class="pr">312,000원~</span></div>
+        <div class="mt">동남아 · 3박 · 최저편 VietJet 직항 · 특가 2회</div>
+        <button class="addbtn">+ 노선에 바로 추가</button>
+      </div>
+      <div class="rec">
+        <div class="h"><span class="nm">세부 <small style="color:#9CA3AF">CEB</small></span><span class="pr">358,000원~</span></div>
+        <div class="mt">동남아 · 4박 · 최저편 진에어 직항</div>
+        <button class="addbtn">+ 노선에 바로 추가</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>🛒 핫딜 키워드 추천</h2>
+      <div class="rec">
+        <div class="h"><span class="nm">🍜 라면 박스</span><span class="pr">점수 78</span></div>
+        <div class="mt">식품 · 게시물 24 · 브랜드매칭 88%</div>
+        <button class="addbtn">+ 키워드에 바로 추가</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 스케줄 -->
+  <div class="sec" id="s3">
+    <div class="card">
+      <h2>⏰ 스케줄</h2>
+      <div class="sched"><span>flight (항공권)</span><span><span class="time">06:50</span> <span class="toggle"></span></span></div>
+      <div class="sched"><span>price (핫딜)</span><span><span class="time">09:07 외 5</span> <span class="toggle off"></span></span></div>
+      <div class="sched"><span>flight_scout (도착지추천)</span><span><span class="time">08:10</span> <span class="toggle"></span></span></div>
+      <div class="sched"><span>status (현황)</span><span><span class="time">08:30 외 2</span> <span class="toggle"></span></span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function tab(i){
+  document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('on',i===j));
+  document.querySelectorAll('.sec').forEach((s,j)=>s.classList.toggle('on',i===j));
+}
+document.querySelectorAll('.addbtn,.add button,.x,.toggle').forEach(el=>el.addEventListener('click',e=>{
+  e.stopPropagation();
+  if(el.classList.contains('toggle')){el.classList.toggle('off');return;}
+  alert('미리보기입니다. 실제 백엔드 연결 시 즉시 반영됩니다.');
+}));
+</script>
+</body>
+</html>
