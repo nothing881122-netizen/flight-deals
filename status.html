@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>📊 알리미 현황</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#FAF7F2;color:#2C1810;min-height:100vh;padding-bottom:48px}
+.header{background:linear-gradient(135deg,#5B7C99,#3A5468);color:#fff;padding:40px 20px 22px;text-align:center}
+.header h1{font-size:21px;font-weight:700}.header .sub{font-size:12px;opacity:.85;margin-top:6px}
+.main{max-width:680px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:16px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(60,80,100,.1)}
+.card h2{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid #F0EBE4;font-size:13px}
+.row:first-of-type{border-top:none}
+.row .k{color:#5C4A3A}.row .v{font-weight:600;color:#2C1810}
+.on{color:#2E7D32;font-weight:700}.off{color:#B0A89A}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{background:#EEF2F6;color:#3A5468;border-radius:12px;padding:3px 10px;font-size:12px}
+.trend{display:flex;gap:3px;align-items:flex-end;height:56px;margin:8px 0}
+.bar{flex:1;background:#5B7C99;border-radius:3px 3px 0 0;min-height:3px;position:relative}
+.bar span{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:9px;color:#8B7355;white-space:nowrap}
+.bar b{position:absolute;top:-15px;left:50%;transform:translateX(-50%);font-size:10px;color:#3A5468;font-weight:700}
+.tlabel{font-size:11px;color:#8B7355;margin-top:20px}
+.edit{display:inline-block;margin-top:10px;font-size:12px;color:#3A5468;text-decoration:none;border:1px solid #C9D4DE;border-radius:8px;padding:6px 12px}
+.edit:hover{background:#EEF2F6}
+.muted{font-size:12px;color:#A89A8A;margin-top:4px}
+.footer{text-align:center;padding:20px;font-size:11px;color:#B8A88A}
+</style></head>
+<body>
+  <div class="header"><h1>📊 알리미 통합 현황</h1><p class="sub">2026-06-07 15:58 · 오늘 알람 1건</p></div>
+  <div class="main">
+
+    <div class="card">
+      <h2>🔔 알람 추세</h2>
+      <div class="trend"><div class="bar" style="height:0%"><span>06-01</span></div><div class="bar" style="height:100%"><b>7</b><span>06-02</span></div><div class="bar" style="height:0%"><span>06-03</span></div><div class="bar" style="height:57%"><b>4</b><span>06-04</span></div><div class="bar" style="height:14%"><b>1</b><span>06-05</span></div><div class="bar" style="height:28%"><b>2</b><span>06-06</span></div><div class="bar" style="height:14%"><b>1</b><span>06-07</span></div></div><div class="tlabel">최근 7일 알람 발송(건)</div>
+    </div>
+
+    <div class="card">
+      <h2>⏰ 스케줄 (4개 작업)</h2>
+      <div class="row"><span class="k">flight</span><span class="v on">● 06:50</span></div><div class="row"><span class="k">price</span><span class="v off">○ 09:07,11:23,13:37,15:13,17:47,19:17</span></div><div class="row"><span class="k">scout</span><span class="v off">○ 07:17</span></div><div class="row"><span class="k">flight_scout</span><span class="v on">● 08:10</span></div>
+      <a class="edit" href="https://github.com/nothing881122-netizen/notifiers/edit/main/schedule.json" target="_blank">시간 편집 →</a>
+    </div>
+
+    <div class="card">
+      <h2>✈ 항공권 노선 (10개)</h2>
+      <div class="chips"><span class="chip">인천 → 도쿄 (나리타)</span><span class="chip">인천 → 도쿄 (하네다)</span><span class="chip">인천 → 오사카</span><span class="chip">인천 → 후쿠오카</span><span class="chip">인천 → 상하이</span><span class="chip">인천 → 방콕</span><span class="chip">인천 → 싱가포르</span><span class="chip">인천 → LA</span><span class="chip">인천 → 하와이</span><span class="chip">인천 → 시칠리아 (카타니아)</span></div>
+      <a class="edit" href="https://github.com/nothing881122-netizen/notifiers/edit/main/flight_monitor/config.json" target="_blank">노선 편집 →</a>
+    </div>
+
+    <div class="card">
+      <h2>🛒 핫딜 키워드 (17개)</h2>
+      <div class="muted" style="margin-top:8px">food</div><div class="chips"><span class="chip">스팸</span><span class="chip">참치캔</span><span class="chip">고시히카리 10kg</span><span class="chip">그래놀라</span><span class="chip">그릭요거트</span><span class="chip">마이프로틴</span><span class="chip">두유 박스</span><span class="chip">커피믹스</span></div><div class="muted" style="margin-top:8px">electronics</div><div class="chips"><span class="chip">가민 포러너 570</span><span class="chip">로지텍 MX Master</span><span class="chip">갤럭시 버즈4</span><span class="chip">에어팟</span><span class="chip">샤오미 슬림 보조배터리</span></div><div class="muted" style="margin-top:8px">household</div><div class="chips"><span class="chip">세탁세제</span><span class="chip">섬유유연제</span><span class="chip">화장지</span><span class="chip">바디워시</span></div>
+      <a class="edit" href="https://github.com/nothing881122-netizen/price-monitor/edit/main/keywords.json" target="_blank">키워드 편집 →</a>
+    </div>
+
+  </div>
+  <div class="footer">internal · NAS scheduler 자동 생성</div>
+</body></html>
